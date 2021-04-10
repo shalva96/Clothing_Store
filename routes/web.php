@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +28,13 @@ Route::get('manga', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::middleware(['role:admin'])->prefix('admin_panel')->group(function () {
+	Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('homeAdmin');
+
+	Route::resource('category', CategoryController::class);
+	Route::resource('post', PostController::class);
+
+});
+
