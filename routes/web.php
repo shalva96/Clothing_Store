@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\PostController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
